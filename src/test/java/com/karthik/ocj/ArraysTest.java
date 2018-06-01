@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import javax.xml.transform.Source;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -56,5 +57,21 @@ public class ArraysTest {
         assertThat(Arrays.binarySearch(strArr, "100")).isEqualTo(4);
         assertThat(Arrays.binarySearch(strArr, "1001")).isEqualTo(-6);
         assertThat(Arrays.binarySearch(strArr, "*()")).isEqualTo(-2);
+    }
+
+    @Test
+    public void testArraysToList(){
+        String[] strArray = {"Cow", "Dog", "Cat", "Rat"};
+        List<String> strList = Arrays.asList(strArray);
+//        strList.add("Hen");//UnsupportedOperationException
+        strList.set(3, "Hen");
+        //strList.clear();//UnsupportedOperationException
+        //strList.remove("Cat");//UnsupportedOperationException
+        //strList.remove(2);//UnsupportedOperationException
+        for (String str :
+                strArray) {
+            System.out.print(str+" ");
+
+        }
     }
 }
